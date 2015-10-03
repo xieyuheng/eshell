@@ -9928,10 +9928,12 @@ arriving, or after."
     (let ((prompt (funcall eshell-prompt-function)))
       (and eshell-highlight-prompt
            (add-text-properties 0 (length prompt)
-                                '(read-only t
-                                  font-lock-face eshell-prompt
-                                  front-sticky (font-lock-face read-only)
-                                  rear-nonsticky (font-lock-face read-only))
+                                ;; '(read-only t
+                                ;;   font-lock-face eshell-prompt
+                                ;;   front-sticky (font-lock-face read-only)
+                                ;;   rear-nonsticky (font-lock-face read-only))
+                                '(read-only nil
+                                  font-lock-face eshell-prompt)
                                 prompt))
       (eshell-interactive-print prompt)))
   (run-hooks 'eshell-after-prompt-hook))
