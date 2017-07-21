@@ -6319,7 +6319,7 @@ to writing a completion function."
   :type (get 'pcomplete-cycle-completions 'custom-type)
   :group 'eshell-cmpl)
 
-(defcustom eshell-cmpl-cycle-cutoff-length 5
+(defcustom eshell-cmpl-cycle-cutoff-length 99
   (documentation-property 'pcomplete-cycle-cutoff-length
                           'variable-documentation)
   :type (get 'pcomplete-cycle-cutoff-length 'custom-type)
@@ -8104,7 +8104,6 @@ element, regardless of any text on the command line.  In that case,
     ([(control ?r)]   . eshell-isearch-backward)
     ([(control ?s)]   . eshell-isearch-forward)
     ([(meta ?r)]      . eshell-previous-matching-input)
-    ([(meta ?s)]      . eshell-next-matching-input)
     ([(meta ?p)]      . eshell-previous-matching-input-from-input)
     ([(meta ?n)]      . eshell-next-matching-input-from-input)
     ([up]             . eshell-previous-matching-input-from-input)
@@ -8170,12 +8169,6 @@ element, regardless of any text on the command line.  In that case,
     (define-key eshell-mode-map [down] 'eshell-next-matching-input-from-input)
     (define-key eshell-mode-map [(control up)] 'eshell-previous-input)
     (define-key eshell-mode-map [(control down)] 'eshell-next-input)
-    (define-key eshell-mode-map [(meta ?r)] 'eshell-previous-matching-input)
-    (define-key eshell-mode-map [(meta ?s)] 'eshell-next-matching-input)
-    (define-key eshell-command-map [(meta ?r)]
-      'eshell-previous-matching-input-from-input)
-    (define-key eshell-command-map [(meta ?s)]
-      'eshell-next-matching-input-from-input)
     (if eshell-hist-match-partial
         (progn
           (define-key eshell-mode-map [(meta ?p)]
